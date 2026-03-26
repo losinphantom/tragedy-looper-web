@@ -1,0 +1,126 @@
+import type { RoleRecord } from '../dictionary';
+
+export const BT_OLD_ROLES: Record<string, RoleRecord> = {
+  key_person: {
+    id: 'key_person',
+    label: { 'zh-CN': '关键人物', en: 'Key Person' },
+    maxCopies: null,
+    goodwillRefusal: 'none',
+    rules: [
+      { id: 'bt_old_key_person_death_loss', timing: 'always', mandatory: true, visibility: 'secret_cause', summary: { 'zh-CN': '该角色死亡时，主人公失败，当前轮回立即结束。' } },
+    ],
+    appearsInPlotIds: ['bt_old_murder_plan', 'bt_old_sign_with_me'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  killer: {
+    id: 'killer',
+    label: { 'zh-CN': '杀手', en: 'Killer' },
+    maxCopies: null,
+    goodwillRefusal: 'optional',
+    rules: [
+      { id: 'bt_old_killer_kill_key_person', timing: 'day_end', mandatory: false, visibility: 'secret_cause', summary: { 'zh-CN': '同一区域1名关键人物身上有2枚或以上[密谋]→那名关键人物死亡。' } },
+      { id: 'bt_old_killer_protagonist_kill', timing: 'day_end', mandatory: false, visibility: 'secret_cause', summary: { 'zh-CN': '该角色身上有4枚或以上[密谋]→主人公死亡。' } },
+    ],
+    appearsInPlotIds: ['bt_old_murder_plan'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  brain: {
+    id: 'brain',
+    label: { 'zh-CN': '主谋', en: 'Brain' },
+    maxCopies: null,
+    goodwillRefusal: 'optional',
+    rules: [
+      { id: 'bt_old_brain_intrigue', timing: 'mastermind_ability', mandatory: false, visibility: 'secret_cause', summary: { 'zh-CN': '往同一区域任意一名角色身上，或该角色所在的版图上放置1枚[密谋]。' } },
+    ],
+    appearsInPlotIds: ['bt_old_murder_plan', 'bt_old_evil_seal'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  bt_old_evil_spirit: {
+    id: 'bt_old_evil_spirit',
+    label: { 'zh-CN': '恶灵乌基', en: 'Evil Spirit Ugi' },
+    maxCopies: null,
+    goodwillRefusal: 'mandatory',
+    rules: [
+      { id: 'bt_old_evil_spirit_nullify', timing: 'card_resolve', mandatory: false, visibility: 'secret_cause', summary: { 'zh-CN': '可以无效化同一区域中任意角色身上和该角色所在版图上放置的禁止移动和禁止密谋。' } },
+    ],
+    appearsInPlotIds: ['bt_old_evil_seal', 'bt_old_giant_time_bomb_x'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  bt_old_witch: {
+    id: 'bt_old_witch',
+    label: { 'zh-CN': '魔女', en: 'Witch' },
+    maxCopies: null,
+    goodwillRefusal: 'mandatory',
+    rules: [],
+    appearsInPlotIds: ['bt_old_giant_time_bomb_x'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  bt_old_assassin: {
+    id: 'bt_old_assassin',
+    label: { 'zh-CN': '刺客', en: 'Assassin' },
+    maxCopies: null,
+    goodwillRefusal: 'none',
+    rules: [
+      { id: 'bt_old_assassin_intrigue_kill', timing: 'day_end', mandatory: false, visibility: 'secret_cause', summary: { 'zh-CN': '该角色身上有5枚或以上[密谋]→主人公死亡。' } },
+      { id: 'bt_old_assassin_school_kill', timing: 'day_end', mandatory: false, visibility: 'secret_cause', summary: { 'zh-CN': '学校有3枚或以上[密谋]→主人公死亡。' } },
+      { id: 'bt_old_assassin_kill_char', timing: 'day_end', mandatory: false, visibility: 'secret_cause', summary: { 'zh-CN': '同一区域1名角色身上有2枚或以上[密谋]→那名角色死亡。' } },
+    ],
+    appearsInPlotIds: ['bt_old_protagonist_murder_plan'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  friend: {
+    id: 'friend',
+    label: { 'zh-CN': '亲友', en: 'Friend' },
+    maxCopies: 2,
+    goodwillRefusal: 'none',
+    rules: [
+      { id: 'bt_old_friend_loss', timing: 'loop_end', mandatory: true, visibility: 'secret_cause', summary: { 'zh-CN': '失败条件：轮回结束时，该卡牌为死亡状态，此时，需要告知主人公该卡牌的身份。' } },
+      { id: 'bt_old_friend_loop_start', timing: 'loop_start', mandatory: true, visibility: 'secret_cause', summary: { 'zh-CN': '该角色身份曾被公开→往该角色身上放置1枚[友好]。' } },
+    ],
+    appearsInPlotIds: ['bt_old_circle_of_friends', 'bt_old_heartbreak_13', 'bt_old_lurking_serial_killer'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  loved_one: {
+    id: 'loved_one',
+    label: { 'zh-CN': '心上人', en: 'Loved One' },
+    maxCopies: null,
+    goodwillRefusal: 'none',
+    rules: [
+      { id: 'bt_old_loved_one_partner_death', timing: 'always', mandatory: true, visibility: 'secret_cause', summary: { 'zh-CN': '求爱者死亡时，往该角色身上放置6枚[不安]。' } },
+    ],
+    appearsInPlotIds: ['bt_old_a_love_affair'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  lover: {
+    id: 'lover',
+    label: { 'zh-CN': '求爱者', en: 'Lover' },
+    maxCopies: null,
+    goodwillRefusal: 'none',
+    rules: [
+      { id: 'bt_old_lover_loved_one_dies', timing: 'always', mandatory: true, visibility: 'secret_cause', summary: { 'zh-CN': '心上人死亡时，往该角色身上放置6枚[不安]。' } },
+      { id: 'bt_old_lover_kill', timing: 'day_end', mandatory: false, visibility: 'secret_cause', summary: { 'zh-CN': '该角色身上有1枚或以上[密谋]且有3枚或以上[不安]→主人公死亡。' } },
+    ],
+    appearsInPlotIds: ['bt_old_a_love_affair'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  serial_killer: {
+    id: 'serial_killer',
+    label: { 'zh-CN': '杀人狂', en: 'Serial Killer' },
+    maxCopies: null,
+    goodwillRefusal: 'none',
+    rules: [
+      { id: 'bt_old_serial_killer_kill', timing: 'day_end', mandatory: true, visibility: 'secret_cause', summary: { 'zh-CN': '仅有1名角色与该角色位于同一区域→那名角色死亡。' } },
+    ],
+    appearsInPlotIds: ['bt_old_heartbreak_13', 'bt_old_lurking_serial_killer'],
+    source: { setId: 'basic_tragedy_old' },
+  },
+  bt_old_thug: {
+    id: 'bt_old_thug',
+    label: { 'zh-CN': '暴徒', en: 'Thug' },
+    maxCopies: null,
+    goodwillRefusal: 'optional',
+    rules: [],
+    appearsInPlotIds: [],
+    source: { setId: 'basic_tragedy_old' },
+  },
+};

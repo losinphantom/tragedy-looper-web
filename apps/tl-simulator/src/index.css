@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased font-sans overflow-hidden;
+  }
+}
+
+/* Custom Scrollbar for a sleek dark look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-900/50 rounded-full;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full transition-colors;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-500;
+}
+
+/* Utility for hiding scrollbar visually but allowing scroll */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Heart-fall particle animation for goodwill-ready characters */
+@keyframes heartfall {
+  0%   { top: -10%; opacity: 0.9; transform: translateX(0) scale(1); }
+  50%  { opacity: 0.6; transform: translateX(6px) scale(0.9); }
+  100% { top: 110%; opacity: 0; transform: translateX(-4px) scale(0.7); }
+}
+
+@keyframes floatUpFade {
+  0% { opacity: 0; transform: translate(-50%, 10px) scale(0.8); }
+  20% { opacity: 1; transform: translate(-50%, -10px) scale(1.2); }
+  80% { opacity: 1; transform: translate(-50%, -30px) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -40px) scale(0.9); }
+}
+
+.animate-float-up-fade {
+  animation: floatUpFade 1.5s ease-out forwards;
+}

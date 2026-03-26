@@ -1,0 +1,16 @@
+{
+  "name": "@tragedy/rules",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tragedy/domain": "file:../domain",
+    "@tragedy/game-logic": "file:../game-logic"
+  }
+}

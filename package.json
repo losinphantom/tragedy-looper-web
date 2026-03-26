@@ -1,0 +1,39 @@
+{
+  "name": "tragedy",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "npm@11.7.0",
+  "engines": {
+    "node": ">=22.22.0",
+    "npm": ">=11 <12"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "audit:content-workflow": "npx tsx scripts/audit-content-workflow.ts",
+    "audit:timeline-facts": "npx tsx scripts/audit-timeline-facts.ts",
+    "audit:module-manifests": "npx tsx scripts/audit-module-manifests.ts",
+    "gsd:doctor": "node scripts/gsd-local.cjs doctor",
+    "gsd:next": "node scripts/gsd-local.cjs next",
+    "gsd:progress": "node scripts/gsd-local.cjs progress",
+    "scaffold:official-content": "npx tsx scripts/scaffold-official-content-pack.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit --project tsconfig.base.json"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "boardgame.io": "^0.50.2",
+    "pdf-parse": "^2.4.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}

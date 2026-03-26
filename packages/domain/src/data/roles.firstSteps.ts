@@ -1,0 +1,146 @@
+import type { RoleRecord } from '../dictionary';
+
+export const FIRST_STEPS_ROLES: Record<string, RoleRecord> = {
+  key_person: {
+    id: 'key_person',
+    label: { 'zh-CN': '关键人物', en: 'Key Person' },
+    maxCopies: null,
+    goodwillRefusal: 'none',
+    rules: [
+      {
+        id: 'key_person_death_loss',
+        timing: 'always',
+        mandatory: true,
+        visibility: 'secret_cause',
+        summary: { 'zh-CN': '该角色死亡时，主人公立即败北。' },
+      },
+    ],
+    appearsInPlotIds: ['murder_plan', 'a_place_to_protect'],
+    source: { setId: 'first_steps' },
+  },
+  brain: {
+    id: 'brain',
+    label: { 'zh-CN': '主谋', en: 'Brain' },
+    maxCopies: null,
+    goodwillRefusal: 'optional',
+    rules: [
+      {
+        id: 'brain_intrigue_ability',
+        timing: 'mastermind_ability',
+        mandatory: false,
+        visibility: 'secret_cause',
+        summary: { 'zh-CN': '可在所在版图或同版图角色上放置1个密谋。' },
+      },
+    ],
+    appearsInPlotIds: ['murder_plan', 'light_of_the_avenger'],
+    source: { setId: 'first_steps' },
+  },
+  killer: {
+    id: 'killer',
+    label: { 'zh-CN': '杀手', en: 'Killer' },
+    maxCopies: null,
+    goodwillRefusal: 'optional',
+    rules: [
+      {
+        id: 'killer_day_end_key_person',
+        timing: 'day_end',
+        mandatory: false,
+        visibility: 'secret_cause',
+        summary: { 'zh-CN': '若关键人物与其同地且关键人物至少有2密谋，可杀死关键人物。' },
+      },
+      {
+        id: 'killer_day_end_protagonists',
+        timing: 'day_end',
+        mandatory: false,
+        visibility: 'secret_cause',
+        summary: { 'zh-CN': '若自身至少有4密谋，可杀死主人公。' },
+      },
+    ],
+    appearsInPlotIds: ['murder_plan'],
+    source: { setId: 'first_steps' },
+  },
+  cultist: {
+    id: 'cultist',
+    label: { 'zh-CN': '邪教徒', en: 'Cultist' },
+    maxCopies: null,
+    goodwillRefusal: 'mandatory',
+    rules: [
+      {
+        id: 'cultist_ignore_forbid_intrigue',
+        timing: 'card_resolve',
+        mandatory: false,
+        visibility: 'secret_cause',
+        summary: { 'zh-CN': '可无视同版图的禁止密谋效果。' },
+      },
+    ],
+    appearsInPlotIds: ['a_place_to_protect'],
+    source: { setId: 'first_steps' },
+  },
+  friend: {
+    id: 'friend',
+    label: { 'zh-CN': '亲友', en: 'Friend' },
+    maxCopies: 2,
+    goodwillRefusal: 'none',
+    rules: [
+      {
+        id: 'friend_dead_reveal_loss',
+        timing: 'loop_end',
+        mandatory: true,
+        visibility: 'public_result',
+        summary: { 'zh-CN': '若其死亡，公开身份且主人公败北。' },
+      },
+      {
+        id: 'friend_revealed_loop_start_goodwill',
+        timing: 'loop_start',
+        mandatory: true,
+        visibility: 'public_result',
+        summary: { 'zh-CN': '若其身份已公开，则循环开始时获得1个友好。' },
+      },
+    ],
+    appearsInPlotIds: ['a_hideous_script'],
+    source: { setId: 'first_steps' },
+  },
+  serial_killer: {
+    id: 'serial_killer',
+    label: { 'zh-CN': '杀人狂', en: 'Serial Killer' },
+    maxCopies: null,
+    goodwillRefusal: 'none',
+    rules: [
+      {
+        id: 'serial_killer_day_end_kill',
+        timing: 'day_end',
+        mandatory: true,
+        visibility: 'secret_cause',
+        summary: { 'zh-CN': '若所在版图恰有1名其他角色，则杀死该角色。' },
+      },
+    ],
+    appearsInPlotIds: ['shadow_of_the_ripper'],
+    source: { setId: 'first_steps' },
+  },
+  conspiracy_theorist: {
+    id: 'conspiracy_theorist',
+    label: { 'zh-CN': '传谣人', en: 'Conspiracy Theorist' },
+    maxCopies: 1,
+    goodwillRefusal: 'none',
+    rules: [
+      {
+        id: 'conspiracy_theorist_unease_ability',
+        timing: 'mastermind_ability',
+        mandatory: false,
+        visibility: 'secret_cause',
+        summary: { 'zh-CN': '可在同版图角色上放置1个不安。' },
+      },
+    ],
+    appearsInPlotIds: ['a_hideous_script', 'an_unsettling_rumor', 'shadow_of_the_ripper'],
+    source: { setId: 'first_steps' },
+  },
+  curmudgeon: {
+    id: 'curmudgeon',
+    label: { 'zh-CN': '暴徒', en: 'Curmudgeon' },
+    maxCopies: null,
+    goodwillRefusal: 'optional',
+    rules: [],
+    appearsInPlotIds: ['a_hideous_script'],
+    source: { setId: 'first_steps' },
+  },
+};

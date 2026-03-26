@@ -1,0 +1,17 @@
+{
+  "name": "@tragedy/server",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@tragedy/domain": "file:../../packages/domain",
+    "@tragedy/game-logic": "file:../../packages/game-logic",
+    "@tragedy/rules": "file:../../packages/rules",
+    "boardgame.io": "^0.50.2"
+  },
+  "scripts": {
+    "dev": "tsx src/dev-server.ts",
+    "serve": "vite-node src/serve.ts",
+    "test": "vitest run"
+  }
+}

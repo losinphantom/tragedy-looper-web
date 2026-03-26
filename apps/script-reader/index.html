@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>惨剧轮回 · 剧本阅读器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <h1>惨剧轮回</h1>
+      <p class="subtitle">剧本阅读器</p>
+    </div>
+    <div class="sidebar-controls">
+      <select id="fileSelect"></select>
+      <select id="moduleFilter">
+        <option value="">(所有模组)</option>
+      </select>
+      <input type="text" id="searchBox" placeholder="🔍 搜索标题/ID..." />
+      <div class="advanced-filters" style="display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px;">
+        <input type="number" id="filterCast" placeholder="人数" style="width: 48px; padding: 4px; border-radius: 4px; background: var(--bg-crust); color: var(--text-normal); border: 1px solid var(--border-color); font-size: 11px;" title="出场人数" min="0">
+        <input type="number" id="filterDays" placeholder="日数" style="width: 48px; padding: 4px; border-radius: 4px; background: var(--bg-crust); color: var(--text-normal); border: 1px solid var(--border-color); font-size: 11px;" title="日数" min="0">
+        <input type="number" id="filterLoops" placeholder="轮回" style="width: 48px; padding: 4px; border-radius: 4px; background: var(--bg-crust); color: var(--text-normal); border: 1px solid var(--border-color); font-size: 11px;" title="轮回数" min="0">
+        <input type="number" id="filterIncidents" placeholder="事件" style="width: 48px; padding: 4px; border-radius: 4px; background: var(--bg-crust); color: var(--text-normal); border: 1px solid var(--border-color); font-size: 11px;" title="事件数" min="0">
+        <select id="sortSelect" style="flex: 1; padding: 4px; border-radius: 4px; background: var(--bg-crust); color: var(--text-normal); border: 1px solid var(--border-color); font-size: 11px;">
+          <option value="id_asc">排序: 默认/ID</option>
+          <option value="cast_asc">排序: 人数由少到多</option>
+          <option value="cast_desc">排序: 人数由多到少</option>
+          <option value="days_asc">排序: 日数由少到多</option>
+          <option value="days_desc">排序: 日数由多到少</option>
+          <option value="loops_asc">排序: 轮回由少到多</option>
+          <option value="loops_desc">排序: 轮回由多到少</option>
+          <option value="incidents_asc">排序: 事件数由少到多</option>
+          <option value="incidents_desc">排序: 事件数由多到少</option>
+        </select>
+      </div>
+      <label class="audit-mode" style="font-size: 12px; margin-top: 8px; display: flex; align-items: center; gap: 4px; color: var(--text-dim); cursor: pointer;">
+        <input type="checkbox" id="auditMode"> 中英对照排查分类 (按参数)
+      </label>
+    </div>
+    <ul id="scriptList"></ul>
+    <div class="sidebar-footer">
+      <span id="scriptCount">0 个剧本</span>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main id="main">
+    <div id="welcomeScreen">
+      <div class="welcome-icon">🎭</div>
+      <h2>惨剧轮回 · 剧本阅读器</h2>
+      <p>从左侧列表选择一个剧本开始阅读</p>
+    </div>
+
+    <div id="scriptView" style="display:none;">
+      <!-- Card header -->
+      <div class="card-header">
+        <div class="card-title-row">
+          <span class="card-id" id="cardId"></span>
+          <h2 class="card-title" id="cardTitle" contenteditable="true"></h2>
+          <span class="card-title-en" id="cardTitleEN"></span>
+        </div>
+        <div class="card-meta">
+          <span class="badge badge-module" id="cardModule"></span>
+          <span class="badge badge-difficulty" id="cardDifficulty"></span>
+          <span class="badge badge-stars" id="cardStars"></span>
+          <span class="badge badge-loops" id="cardLoops"></span>
+          <span class="badge badge-days" id="cardDays"></span>
+          <span class="badge badge-discuss" id="cardDiscuss"></span>
+        </div>
+        <div class="card-meta-secondary" id="cardMetaSecondary"></div>
+      </div>
+
+      <!-- Two-panel card layout -->
+      <div class="card-panels">
+        <!-- Left: Non-public info (非公开信息表) -->
+        <div class="panel panel-private">
+          <div class="panel-header">
+            <span class="panel-header-cn">非公開信息表</span>
+            <span class="panel-header-en">CLOSED SCRIPT</span>
+          </div>
+
+          <div class="panel-section">
+            <div class="section-title">
+              <span class="rule-label rule-label-y">Rule Y</span>
+              <span class="rule-value" id="mainPlotValue" contenteditable="true"></span>
+              <span class="rule-id" id="mainPlotId"></span>
+            </div>
+            <div class="section-title">
+              <span class="rule-label rule-label-x1">Rule X₁</span>
+              <span class="rule-value" id="subplot1Value" contenteditable="true"></span>
+              <span class="rule-id" id="subplot1Id"></span>
+            </div>
+            <div class="section-title" id="subplot2Row">
+              <span class="rule-label rule-label-x2">Rule X₂</span>
+              <span class="rule-value" id="subplot2Value" contenteditable="true"></span>
+              <span class="rule-id" id="subplot2Id"></span>
+            </div>
+          </div>
+
+          <!-- Cast table -->
+          <div class="panel-section">
+            <div class="section-label">Cast · 登场人物</div>
+            <table class="cast-table" id="castTable">
+              <thead>
+                <tr>
+                  <th>人物</th>
+                  <th>身份</th>
+                  <th>备注</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="castBody"></tbody>
+            </table>
+            <button class="btn-add" id="addCastBtn">+ 添加角色</button>
+          </div>
+
+          <!-- Incidents table -->
+          <div class="panel-section">
+            <div class="section-label">Incidents · 事件（含当事人）</div>
+            <table class="incident-table" id="incidentTable">
+              <thead>
+                <tr>
+                  <th>日数</th>
+                  <th>事件</th>
+                  <th>当事人</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="incidentBody"></tbody>
+            </table>
+            <button class="btn-add" id="addIncidentBtn">+ 添加事件</button>
+          </div>
+        </div>
+
+        <!-- Right: Public info (公开信息表) -->
+        <div class="panel panel-public">
+          <div class="panel-header panel-header-light">
+            <span class="panel-header-cn">公開信息表</span>
+            <span class="panel-header-en">OPEN SCRIPT</span>
+          </div>
+
+          <div class="panel-section">
+            <div class="public-info-grid">
+              <div class="info-item">
+                <label>惨剧模组</label>
+                <select id="pubModule" class="pub-select"></select>
+              </div>
+              <div class="info-item">
+                <label>Loop</label>
+                <input type="number" id="pubLoops" min="1" max="20" class="pub-input" />
+              </div>
+              <div class="info-item">
+                <label>日数</label>
+                <input type="number" id="pubDays" min="1" max="10" class="pub-input" />
+              </div>
+              <div class="info-item">
+                <label>讨论</label>
+                <select id="pubDiscuss" class="pub-select">
+                  <option value="true">可</option>
+                  <option value="false">不可</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Special rules -->
+          <div class="panel-section">
+            <div class="section-label">特殊规则</div>
+            <textarea id="specialRules" class="pub-textarea" placeholder="无特殊规则"></textarea>
+          </div>
+
+          <!-- Scheduled events (public, no culprit) -->
+          <div class="panel-section">
+            <div class="section-label">Schedule · 预定事件表</div>
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>日数</th>
+                  <th>✉</th>
+                  <th>预定事件</th>
+                </tr>
+              </thead>
+              <tbody id="scheduleBody"></tbody>
+            </table>
+          </div>
+          
+          <!-- Difficulty sets -->
+          <div class="panel-section">
+            <div class="section-label">难度设置</div>
+            <table class="diff-table" id="diffTable">
+              <thead>
+                <tr>
+                  <th>Loop数</th>
+                  <th>难度</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="diffBody"></tbody>
+            </table>
+            <button class="btn-add" id="addDiffBtn">+ 添加难度设置</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="card-footer">
+        <div class="footer-left">
+          <span class="source-info" id="sourceInfo"></span>
+          <span class="wiki-info" id="wikiInfo"></span>
+          <span class="verify-status" id="verifyStatus"></span>
+        </div>
+        <div class="footer-right">
+          <span class="unsaved-label" id="unsavedLabel" style="display:none">⚠ 有未保存的修改</span>
+          <button class="btn-verify" id="linkBtn">🔗 关联剧本</button>
+          <button class="btn-verify" id="verifyBtn">☐ 标记已核对</button>
+          <button class="btn-delete" id="deleteBtn" style="color: #d32f2f; border-color: #d32f2f; margin-right: 8px;">🗑 删除</button>
+          <button class="btn-save" id="saveBtn" disabled>💾 保存</button>
+          <button class="btn-nav" id="prevBtn">◀ 上一个</button>
+          <button class="btn-nav" id="nextBtn">下一个 ▶</button>
+        </div>
+      </div>
+
+      <!-- Unclear notes -->
+      <div class="unclear-section" id="unclearSection" style="display:none">
+        <div class="section-label">⚠ 待核实项</div>
+        <div id="unclearList"></div>
+      </div>
+
+      <!-- Cross-ref diffs -->
+      <div class="crossref-section" id="crossrefSection" style="display:none">
+        <div class="section-label">🔀 已相互关联的剧本</div>
+        <div id="crossrefList"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Link Modal -->
+  <div id="linkModal" style="display:none; position:fixed; top:0;left:0;right:0;bottom:0; background:rgba(0,0,0,0.7); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#1e1e2e; border:1px solid #3a3a4a; border-radius:12px; padding:20px; width:450px; max-height:80vh; display:flex; flex-direction:column;">
+      <h3 style="margin-top:0;">🔗 关联到同源剧本</h3>
+      <input type="text" id="linkSearch" placeholder="搜索 ID 或标题..." style="margin-bottom:12px; padding:8px; border-radius:6px; background:#181825; color:#cdd6f4; border:1px solid #313244;" />
+      <div id="linkResults" style="flex:1; overflow-y:auto; border:1px solid #313244; border-radius:6px; margin-bottom:12px; max-height: 400px;"></div>
+      <div style="display:flex; justify-content:flex-end; gap:8px;">
+        <button id="closeLinkModal" class="btn-delete" style="padding:6px 12px; border-radius:6px; cursor:pointer;">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

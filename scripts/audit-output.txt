@@ -1,0 +1,115 @@
+=== 126 basic_tragedy scripts ===
+
+--- Unique plots ---
+  a_love_affair
+  an_unsettling_rumor
+  change_of_future
+  circle_of_friends
+  fated_connections
+  giant_time_bomb
+  male_confrontation
+  murder_plan
+  paranoia_virus
+  secret_record
+  sign_with_me
+  the_hidden_freak
+  the_sealed_evil
+  the_sealed_item
+  threads_of_fate
+  unknown_factor_x
+
+--- Unique roles ---
+  brain
+  conspiracy_theorist
+  cultist
+  factor
+  fragment
+  friend
+  key_person
+  killer
+  loved_one
+  lover
+  serial_killer
+  time_traveler
+  witch
+
+--- Unique incidents ---
+  butterfly_effect
+  diagonal_destruction
+  diagonal_destruction_3
+  faraway_murder
+  foul_evil
+  hospital_incident
+  increasing_unease
+  missing_person
+  murder
+  spreading
+  suicide
+  the_light_of_hope
+
+=== ISSUES ===
+  鈿狅笍 [BT-ONLY PLOT] traditional_ensemble_murder: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-01: "sign_with_me" 鈥?BT:1瀵嗚皨鈫掑け璐?vs BTX:2瀵嗚皨鈫掑け璐?  鈿狅笍 [BT-ONLY PLOT] BTX-01: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-03: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-04: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-07: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-08: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-09: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-13: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-14: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-16: "sign_with_me" 鈥?BT:1瀵嗚皨鈫掑け璐?vs BTX:2瀵嗚皨鈫掑け璐?  鈿狅笍 [DIFF PLOT] BTX-17: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-18: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-19: "sign_with_me" 鈥?BT:1瀵嗚皨鈫掑け璐?vs BTX:2瀵嗚皨鈫掑け璐?  鈿狅笍 [DIFF PLOT] BTX-20: "sign_with_me" 鈥?BT:1瀵嗚皨鈫掑け璐?vs BTX:2瀵嗚皨鈫掑け璐?  鈿狅笍 [DIFF PLOT] BTX-20: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-22: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-23: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-25: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-26: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-29: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-30: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-31: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-34: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-40: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E02: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E04: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E05: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E11: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E12: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E14: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-E15: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E16: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E20: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E22: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E23: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E25: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-E27: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-E28: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-E33: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-E36: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-E38: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E39: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E40: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E45: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E49: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E50: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E51: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E52: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E53: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E54: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E55: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E62: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E63: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E64: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E65: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E67: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [DIFF PLOT] BTX-E68: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E69: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E70: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E73: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E74: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E77: "an_unsettling_rumor"
+  鈿狅笍 [BT-ONLY PLOT] BTX-E80: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E82: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+  鈿狅笍 [BT-ONLY PLOT] BTX-E83: "an_unsettling_rumor"
+  鈿狅笍 [DIFF PLOT] BTX-E84: "paranoia_virus" 鈥?BT:2瀵嗚皨鈫掓潃浜虹媯 vs BTX:3涓嶅畨鈫掓潃浜虹媯
+
+16 plots, 13 roles, 12 incidents

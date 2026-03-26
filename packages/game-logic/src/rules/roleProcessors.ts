@@ -1,0 +1,1 @@
+export { roleProcessors } from './roleProcessorCatalog';
