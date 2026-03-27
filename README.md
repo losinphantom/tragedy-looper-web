@@ -38,12 +38,12 @@
 ### 📦 模组支持
 全部 **8 个官方模组 + 十周年扩展** 100% 规则覆盖：
 
-| 模组 | 门禁 | 模组 | 门禁 |
-|------|------|------|------|
-| First Steps (FS) | ✅ 35/35 | Basic Tragedy X (BTX) | ✅ 126/126 |
-| Mystery Circle (MC) | ✅ 39/39 | Haunted Stage Actors (HSA) | ✅ 24/24 |
-| Weird Mythology (WM) | ✅ 23/23 | Midnight Zone (MZ) | ✅ 37/37 |
-| Cosmic Evil (LL) | ✅ 6/6 | Another Horizon Revival (AHR) | ✅ 12/12 |
+| 模组                 | 门禁    | 模组                         | 门禁      |
+| -------------------- | ------- | ---------------------------- | --------- |
+| First Steps (FS)     | ✅ 35/35 | Basic Tragedy X (BTX)        | ✅ 126/126 |
+| Mystery Circle (MC)  | ✅ 39/39 | Haunted Stage Again (HSA)    | ✅ 24/24   |
+| Weird Mythology (WM) | ✅ 23/23 | Midnight Zone (MZ)           | ✅ 37/37   |
+| Last Liar (LL)       | ✅ 6/6   | Another Horizon Revise (AHR) | ✅ 12/12   |
 
 ### 🎴 引擎能力
 - 行动卡结算引擎：17+4 张卡注册，4 步优先级结算
@@ -105,11 +105,11 @@ npm run dev --workspace=apps/tl-simulator
 
 ## ⚙️ 技术架构
 
-| 层 | 技术 |
-|---|---|
+| 层   | 技术                                                            |
+| ---- | --------------------------------------------------------------- |
 | 前端 | React 19 · Vite 6 · Tailwind CSS 3 · Framer Motion · TypeScript |
-| 后端 | boardgame.io Server · Socket.IO · vite-node |
-| 共享 | npm workspaces monorepo · ESM · Vitest |
+| 后端 | boardgame.io Server · Socket.IO · vite-node                     |
+| 共享 | npm workspaces monorepo · ESM · Vitest                          |
 
 **架构理念**：
 - **纯状态机**：游戏逻辑是纯粹的状态转换，不依赖浏览器 API
