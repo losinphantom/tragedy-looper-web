@@ -129,11 +129,24 @@ npm run typecheck
 npm run build --workspace=apps/tl-simulator
 ```
 
+## 🛠️ 待完善功能
+
+- [ ] 进一步完善 2-4 人变体的边界规则、出牌限制与队长轮换细节
+- [ ] 提升多模组兼容性，补齐特殊规则、EX 槽与扩展内容的联动验证
+- [ ] 支持自定义导入剧本，提供更稳定的脚本校验、预览与落库流程
+- [ ] 持续扩展剧本特殊规则支持，减少需要手工裁定的例外情况
+- [ ] 优化沙盒模式，增强状态编辑、快照调试与测试体验
+- [ ] 增加录像回放功能，支持按阶段回看对局流程与关键结算节点
+- [ ] 增加观众模式，支持非对局玩家旁观并遵守信息可见性限制
+- [ ] 增加聊天框系统，支持房间内实时沟通与基础消息管理
+- [ ] 持续改进复杂结算场景下的前端反馈、日志可读性与新手引导
+
 ## 📜 License
 
 MIT
 
 ## 🙏 致谢
 
-- [BakaFire](https://twitter.com/BakaFire_TL) — 《惨剧轮回》游戏设计
+- 《惨剧轮回》作者：BakaFire、NEKOG(紺ノ玲)
+- http://bakafire.main.jp/rooper/sr_dl_04_sozai.htm
 - [boardgame.io](https://boardgame.io/) — 游戏引擎框架
